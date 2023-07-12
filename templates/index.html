@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Masks Detector Web Application</title>
-    <meta charset="utf-8">
-	<meta name="author" content="AnikeSadia">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,user-scalable=no">
+    <meta charset="utf-8" />
+    <meta name="author" content="AnikeSadia" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,maximum-scale=1,user-scalable=no"
+    />
     <style>
-    *{
-
+      * {
         font-family: calibri Light;
         padding: 0;
         margin: 0;
-        }
-        
-        #header{
-        
+      }
+
+      #header {
         margin-top: 0;
         padding: 0px;
         height: 30px;
-        
-        }
-        #logo{
+      }
+      #logo {
         margin-left: 70px;
         margin-top: 35px;
         text-decoration: none;
@@ -31,84 +31,78 @@
         font-family: arial;
         color: blue;
         font-weight: bold;
-        }
-        
-        #logo:hover{
+      }
+
+      #logo:hover {
         color: black;
-        }
-        
-        nav{
+      }
+
+      nav {
         float: right;
         margin-right: 90px;
-        }
-        nav ul{
+      }
+      nav ul {
         margin-top: 40px;
         margin-right: 35px;
         float: right;
-        }
-        nav li{
-            display: inline-block;
-        }
-        nav a{
-        text-decoration:none;
+      }
+      nav li {
+        display: inline-block;
+      }
+      nav a {
+        text-decoration: none;
         color: black;
         margin-right: 10px;
         text-transform: uppercase;
         font-size: 17px;
         padding: 8px;
         font-weight: bold;
-        }
-        .active{
-        border:1px solid rgb(175,126,106);
+      }
+      .active {
+        border: 1px solid rgb(175, 126, 106);
         border-bottom-right-radius: 8px;
         border-top-left-radius: 8px;
-        }
-        nav a:hover{
-        color:rgba(250,151,70,255);
-        }
-        
-        #content1{
+      }
+      nav a:hover {
+        color: rgba(250, 151, 70, 255);
+      }
+
+      #content1 {
         min-height: 300px;
         margin: 0;
         margin-bottom: 100px;
-        
-        }
-        img{
+      }
+      img {
         float: right;
         height: 470px;
         width: 800px;
         margin-top: 35px;
-        }
-        /* #img1{
+      }
+      /* #img1{
         float: right;
         
         } */
-        .content1-context{
+      .content1-context {
         float: left;
         height: 250;
         width: 30%;
         margin-top: 140px;
-        margin-left:120px;
+        margin-left: 120px;
         line-height: 1.9em;
-        
-        }
-        
-        .content1-context h1{
-        
-        color: rgba(29,69,138,255)	;
+      }
+
+      .content1-context h1 {
+        color: rgba(29, 69, 138, 255);
         font-size: 42px;
         margin-bottom: 35px;
         font-family: Arial, Helvetica, sans-serif;
-        
-        
-        }
-        .content1-context p{
+      }
+      .content1-context p {
         color: rgb(59, 57, 57);
         font-size: 19px;
         font-family: calibri Light;
-        
-        }
-        #explore-btn{
+      }
+      #explore-btn {
         text-decoration: none;
         padding: 15px;
         color: white;
@@ -117,63 +111,56 @@
         border-radius: 13px;
         margin-top: 15px;
         /* margin-left: 250px; */
-        }
-        
-        .span1{
+      }
+
+      .span1 {
         font-size: 25px;
-        color: rgba(250,151,70,255);
+        color: rgba(250, 151, 70, 255);
         font-weight: bold;
-        font-style:italic;
-        }
-        #explore-btn:hover{
-        
-        background-color: rgba(250,151,70,255);
-        }
-        
-        #about{
+        font-style: italic;
+      }
+      #explore-btn:hover {
+        background-color: rgba(250, 151, 70, 255);
+      }
+
+      #about {
         min-height: 650px;
         margin-top: 85px;
         padding: 0px 50px 50px 50px;
         width: 80%;
         margin-left: 70px;
-        
-        
-        }
-        #about h1{
+      }
+      #about h1 {
         color: blue;
         font-size: 60px;
         text-align: center;
         margin-bottom: 30px;
-        
-        }
-        #about p{
+      }
+      #about p {
         font-size: 20px;
-        line-height: 2.0em;
-        color: 	rgb(59, 57, 57);
+        line-height: 2em;
+        color: rgb(59, 57, 57);
         text-align: center;
-        }
-        #sample-pic{
+      }
+      #sample-pic {
         height: 200px;
         width: 500px;
         margin-right: 270px;
-        }
-        
-        #services{
+      }
+
+      #services {
         margin: 0;
-        padding: 0; 
+        padding: 0;
         width: 80%;
         margin-left: 120px;
-        
-        
-        }
-        #services h1{
+      }
+      #services h1 {
         color: blue;
         font-size: 70px;
         text-align: center;
         margin-bottom: 50px;
-        
-        }
-        .serv1{
+      }
+      .serv1 {
         /* height: 00px;	 */
         width: 100%;
         display: inline-block;
@@ -181,342 +168,349 @@
         height: 300px;
         margin-bottom: 10px;
         animation: sliding 3s ease-in-out 1;
-        }
-        
-        .img-serv{
+      }
+
+      .img-serv {
         height: 300px;
         width: 500px;
         float: right;
         box-sizing: border-box;
-        
-        }
-        
-        @keyframes sliding {
-        0%{
+      }
+
+      @keyframes sliding {
+        0% {
           transform: translateX(0px);
         }
-        25%{
+        25% {
           transform: translateX(30px);
-        
         }
-        75%{
+        75% {
           transform: translateX(50px);
         }
-        100%{
+        100% {
           transform: translateX(0px);
         }
-        
-        }
-        .serv1-content{
-        
+      }
+      .serv1-content {
         width: 40%;
         float: left;
         margin-left: 50px;
         height: 350px;
-        margin-top:70px;
-        
-        }
-        .serv1-content h2{
+        margin-top: 70px;
+      }
+      .serv1-content h2 {
         margin-bottom: 10px;
-        
-        }
-        .serv1-content p{
+      }
+      .serv1-content p {
         color: rgb(59, 57, 57);
         font-size: 18px;
-        
-        }
-        
-        .btn-serv{
+      }
+
+      .btn-serv {
         text-decoration: none;
         padding: 10px;
         color: white;
         background-color: blue;
         font-size: 18px;
         border-radius: 13px;
-        margin-top: 15px;	
+        margin-top: 15px;
         margin-top: 20px;
-        
-        }
-        .btn-serv:hover{
-        background-color: rgba(250,151,70,255);
-        }
-        #cases{
+      }
+      .btn-serv:hover {
+        background-color: rgba(250, 151, 70, 255);
+      }
+      #cases {
         min-height: 700px;
         width: 87%;
         margin-left: 120px;
         margin-bottom: 50px;
-        }
-        #cases h1{
+      }
+      #cases h1 {
         color: blue;
         font-size: 70px;
         margin-left: 420px;
         margin-bottom: 70px;
-        
-        }
-        .img-case{
+      }
+      .img-case {
         height: 200px;
         width: 300px;
         margin-bottom: 25px;
         border-bottom-left-radius: 50px;
         border-bottom-right-radius: 50px;
         border-top-right-radius: 50px;
-        
-        }
-        .box{
+      }
+      .box {
         width: 25%;
         box-sizing: border-box;
         float: left;
         margin-right: 55px;
         margin-left: 30px;
-        }
-        
-        .box h2{
+      }
+
+      .box h2 {
         margin-bottom: 8px;
         color: blue;
         font-size: 30px;
-        
-        }
-        .box p{
+      }
+      .box p {
         line-height: 1.8em;
         font-size: 15px;
-        }
-        
-        #contact{
+      }
+
+      #contact {
         min-height: 230px;
         width: 100%;
         color: white;
         margin-top: 0px;
         margin-bottom: 0px;
         background-color: rgb(16, 16, 109);
-        
-        }
-        
-        
-        #contact_left{
+      }
+
+      #contact_left {
         float: left;
         margin-top: 80px;
-        color:white;
+        color: white;
         margin-left: 55px;
-        
-        }
-        
-        #contact_left i{
+      }
+
+      #contact_left i {
         font-size: 35px;
         margin-left: 25px;
         margin-top: 0px;
-        color:white;
-        }
-        
-        #foot{
+        color: white;
+      }
+
+      #foot {
         float: right;
         padding-left: 20px;
         margin-right: 70px;
         color: white;
         margin-top: 45px;
-        
-        }
-        
-        #foot-logo{
+      }
+
+      #foot-logo {
         margin-left: 550px;
         margin-top: 300px;
         text-align: center;
         text-decoration: none;
         font-size: 40px;
         box-sizing: border-box;
-        color: rgba(250,151,70,255); 	
+        color: rgba(250, 151, 70, 255);
         font-weight: bold;
-        
-        }
-        #foot-logo:hover{
+      }
+      #foot-logo:hover {
         color: brown;
-        }
-        .foot-link{
+      }
+      .foot-link {
         text-decoration: none;
         color: white;
         font-size: 19px;
-        }
-        .foot-link:hover{
-        color: rgba(250,151,70,255); 	
-        
-        }
-        #thefoot-logo{
-        
+      }
+      .foot-link:hover {
+        color: rgba(250, 151, 70, 255);
+      }
+      #thefoot-logo {
         width: 100px;
         margin-top: 150px;
-        }
-        
-        
-        .uploadPicture_content{
-        height:100vh;
-        }
-        .animation_content{
+      }
+
+      .uploadPicture_content {
+        height: 100vh;
+      }
+      .animation_content {
         /* background-color:red; */
         display: inline-block;
         margin-left: 70px;
         height: 550px;
         width: 80%;
-        }
-        .animation-areaLeft{
+      }
+      .animation-areaLeft {
         width: 40%;
         float: left;
         box-sizing: border-box;
         margin-right: 50px;
-        padding-left:15px;
-        
-        }
-        .animation-areaRight{
+        padding-left: 15px;
+      }
+      .animation-areaRight {
         width: 40%;
         float: right;
         box-sizing: border-box;
-        
-        }
-        #anime-h1{
-        color: rgba(250,151,70,255);
+      }
+      #anime-h1 {
+        color: rgba(250, 151, 70, 255);
         margin-top: 20px;
         margin-bottom: 20px;
         text-align: center;
-        }
-        .anime-h3{
-        color: rgba(168,68,60,255);
-        }
-        #pics{
+      }
+      .anime-h3 {
+        color: rgba(168, 68, 60, 255);
+      }
+      #pics {
         height: 400px;
         width: 550px;
-        }
-        .error_content{
+      }
+      .error_content {
         position: absolute;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
         padding: 10px;
-        
-        }
-            </style>
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <a id="logo" href="index.html">MaskDetector</a>
+      <nav>
+        <ul>
+          <li><a href="index.html">home</a></li>
+          <li><a href="#about">about</a></li>
+          <li><a href="#services">services</a></li>
+          <li><a href="#contact">contact</a></li>
+        </ul>
+      </nav>
+    </div>
 
+    <div id="content1">
+      <!-- <img id ="img1" src='C:\Users\Lenovo\Desktop\Project\static\img1.jpg'/> -->
+      <img id="img1" src="{{ url_for('static',filename='img1.jpg')}}" />
 
-</head>
-<body> 
-<div id="header">
+      <div class="content1-context">
+        <h1>Face Mask Detector</h1>
+        <p>
+          This web application uses deep learning combined with computer vision
+          to detect people
+          <span class="span1">wearing</span> a face mask
+          <span class="span1"> </span>or <span class="span1">not</span> through
+          live streams videos. <br />
+        </p>
+        <br />
+        <a id="explore-btn" href="#about">EXPLORE</a>
+      </div>
+    </div>
 
-<a id="logo" href="index.html">MaskDetector</a>
-<nav>
-    <ul>
-        <li><a href="index.html">home</a></li>
-        <li><a href="#about">about</a></li>
-        <li><a href="#services">services</a></li>
-        <li><a href="#contact">contact</a></li>
-    </ul>
-</nav>
+    <br /><br />
+    <br /><br />
 
-</div>
+    <div id="about">
+      <br />
+      <h1>What Does The System Do ?</h1>
+      <p>
+        Hospital wards, clinics and nursing homes still necessitate the use face
+        mask for visitors and doctors in order to contain the spread of
+        infection to patients who already have weakened immunity. The alert
+        system will notify the ward incharge of an incoming visitor without mask
+        who in turn will prevent them from entering the room. The system will
+        provide visualizations of the input video frames with overlays or
+        bounding boxes highlighting detected faces with the detection
+        probability .
+      </p>
 
-<div id='content1'>
-<img id ="img1" src='C:\Users\Lenovo\Desktop\Project\static\img1.jpg'/>
+      <!-- <img id='sample-pic' src='C:\Users\Lenovo\Desktop\Project\static\IMG-8129.JPG'> -->
+      <img id="sample-pic" src="{{ url_for('static',filename='IMG-8129')}}" />
+    </div>
 
-<div class="content1-context">
-<h1>Face Mask Detector</h1>
-<p>
-This web application uses deep learning combined with computer vision to detect people 
-<span class="span1">wearing</span> a face mask <span class="span1">  </span>or <span class="span1">not</span> through 
-live streams videos. <br> </p>
-<br>
-<a id="explore-btn" href="#about">EXPLORE</a>
+    <div id="services">
+      <h1>Our Services</h1>
 
-</div>
-</div>
+      <div class="serv1">
+        <div class="serv1-content">
+          <h2>Take Image from Web cam</h2>
+          <p>
+            This site detects if people in the live-video stream are wearing a
+            face mask a face mask correctly, incorrectly or not. Besides the
+            number of face on the video of people wearing a face was correctky
+            or not will be displayed.
+          </p>
 
+          <form action="/ImageStream" >
+            <input type="submit" value="Get Started" class="btn-serv" />
+          </form>
+        </div>
+        <!-- <img class="img-serv" src='C:\Users\Lenovo\Desktop\Project\static\vvv.jpg'> -->
+        <img class="img-serv" src="{{ url_for('static',filename='vvv.jpg')}}" />
+      </div>
+    </div>
 
-<br><br>
-<br><br>
+    <div id="cases">
+      <h1>Use Cases</h1>
 
-<div id="about">
-<br>
-<h1>What Does The System Do ?</h1>
-<p> Hospital wards, clinics and nursing homes still necessitate the use face mask for visitors and doctors in order to contain the spread 
-    of infection to patients who already have weakened immunity. The alert system will notify the ward incharge of an incoming visitor without mask 
-    who in turn will prevent them from entering the room. The system will provide visualizations of the input video frames with overlays or bounding boxes 
-    highlighting detected faces with the detection probability .
-</p>
+      <div class="box">
+        <!-- <img class="img-case" src='C:\Users\Lenovo\Desktop\Project\static\ddd.jpg'/> -->
+        <img class="img-case" src="{{ url_for('static',filename='ddd.jpg')}}" />
+        <br />
+        <h2>Hospitals</h2>
+        <p>
+          Using Face Mask Detection System, Hospitals can monitor if their staff
+          is wearing masks during their shift or not. If any health worker is
+          found without a mask, they will receive a notification with a reminder
+          to wear a mask. Also, if quarantine people who are required to wear a
+          mask, the system can keep an eye and detect if the mask is present or
+          not and send notification automatically or report to the authorities.
+        </p>
+      </div>
 
-<img id='sample-pic' src='C:\Users\Lenovo\Desktop\Project\static\IMG-8129.JPG'>
+      <div class="box">
+        <!-- <img class="img-case" src='C:\Users\Lenovo\Desktop\Project\static\xxxx.jpg'> -->
+        <img
+          class="img-case"
+          src="{{ url_for('static',filename='xxxx.jpg')}}"
+        />
 
-</div>
+        <br />
+        <h2>Airpots</h2>
+        <p>
+          The Face Mask Detection System can be used at airports to detect
+          travelers without masks. Face data of travelers can be captured in the
+          system at the entrance. If a traveler is found to be without a face
+          mask, their picture is sent to the airport authorities so that they
+          could take quick action. If the person’s face is already stored, like
+          the face of an Airport worker, it can send the alert to the worker’s
+          phone directly.
+        </p>
+        <p></p>
+      </div>
 
-<div id="services">
-<h1>Our Services</h1>
+      <div class="box">
+        <!-- <img class="img-case" src='C:\Users\Lenovo\Desktop\Project\static\dss.jpg'> -->
+        <img class="img-case" src="{{ url_for('static',filename='dss.jpg')}}" />
 
-<div class="serv1">
-<div class="serv1-content">
+        <br />
+        <h2>Offices</h2>
+        <p>
+          The Face Mask Detection System can be used at office premises to
+          detect if employees are maintaining safety standards at work. It
+          monitors employees without masks and sends them a reminder to wear a
+          mask. The reports can be downloaded or sent an email at the end of the
+          day to capture people who are not complying with the regulations or
+          the requirements.
+        </p>
+      </div>
+    </div>
 
-<h2>Take Image from Web cam </h2>
-<p>
-This site detects if people in the live-video stream are wearing a face mask
-a face mask correctly, incorrectly or not.
-Besides the number of face on the video of people wearing a face was correctky or not will be displayed.</p>
+    <div id="contact">
+      <div id="contact_left">
+        <a href="#" class="foot-link">Github | </a>
+        <a href="#" class="foot-link">LinkedIn | </a>
+        <a href="#" class="foot-link">Twitter </a>
+        <br />
+        <br />
+        <br />
+        <br />
+      </div>
 
-<form action="/ImageStream" method="post">
-<input type="submit"  value="Get Started" class="btn-serv"/>
-</form>
+      <div id="foot">
+        <p>
+          Number : <br />
+          Email:
+        </p>
+        <br />
 
-</div>
-<img class="img-serv" src='C:\Users\Lenovo\Desktop\Project\static\vvv.jpg'>
-
-</div>
-
-</div>
-
-<div id="cases">
-<h1>Use Cases</h1>
-
-<div class="box">
-<img class="img-case" src='C:\Users\Lenovo\Desktop\Project\static\ddd.jpg'/>
-<br>
-<h2>Hospitals</h2>
-<p> Using Face Mask Detection System, Hospitals can monitor if their staff is wearing masks during their shift or not. If any health worker is found without a mask, they will receive a notification with a reminder to wear a mask. Also, if quarantine people who are required to wear a mask, the system can keep an eye and detect if the mask is present or not and send notification automatically or report to the authorities. </p>
-
-</div>
-
-<div class="box">
-<img class="img-case" src='C:\Users\Lenovo\Desktop\Project\static\xxxx.jpg'>
-<br>
-<h2>Airpots</h2>
-<p> The Face Mask Detection System can be used at airports to detect travelers without masks. Face data of travelers can be captured in the system at the entrance. If a traveler is found to be without a face mask, their picture is sent to the airport authorities so that they could take quick action. If the person’s face is already stored, like the face of an Airport worker, it can send the alert to the worker’s phone directly.<p>
-</div>
-
-
-<div class="box">
-<img class="img-case" src='C:\Users\Lenovo\Desktop\Project\static\dss.jpg'>
-
-<br>
-<h2>Offices</h2>
-<p> The Face Mask Detection System can be used at office premises to detect if employees are maintaining safety standards at work. It monitors employees without masks and sends them a reminder to wear a mask. The reports can be downloaded or sent an email at the end of the day to capture people who are not complying with the regulations or the requirements. </p>
-</div>
-
-</div>
-
-
-
-<div id="contact">
-
-
-<div id='contact_left'>
-
-<a href="#" class="foot-link">Github | </a>
-<a href="#" class="foot-link">LinkedIn | </a>
-<a href="#" class="foot-link">Twitter </a>
-<br> <br>   
-<br> <br>  
-</div>
-
-<div id="foot">
-<p>Number : <br>
-Email: </p>
-<br>
-
-<p id="foot-right">&copy; 2023 | Design by.</p>
-</div>
-<div id='thefoot-logo'>
-<a id="foot-logo" href="index.html">MaskDetector</a>
-</div>
-</div>
-</body>
+        <p id="foot-right">&copy; 2023 | Design by.</p>
+      </div>
+      <div id="thefoot-logo">
+        <a id="foot-logo" href="index.html">MaskDetector</a>
+      </div>
+    </div>
+  </body>
+</html>
