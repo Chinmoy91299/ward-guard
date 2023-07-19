@@ -3,9 +3,10 @@
 <head>
     <title>Masks Detector Web Application</title>
     <meta charset="utf-8">
-	<meta name="author" content="AnikeSadia">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,user-scalable=no">
-    <style>
+    <meta name="author" content="AnikeSadia">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="refresh" content="25">
+<style>
 *{
 
 font-family: calibri Light;
@@ -391,50 +392,78 @@ transform: translate(-50%, -50%);
 padding: 10px;
 
 }
-    </style>
+#refresh-btn {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+</style>
 
 </head>
 <body>
-<div class="upload_content">
+  <div class="upload_content">
+      <div id="header">
+          <!-- Header content -->
+          <a id="logo" href="index.html">MaskDetector</a>
+          <nav>
+              <ul>
+                  <li><a href="index.html">home</a></li>
+                  <li><a href="#about">about</a></li>
+                  <li><a href="#services">services</a></li>
+                  <li><a href="#contact">contact</a></li>
+              </ul>
+          </nav>
+      </div>
+  
+      <div class="animation_content">
+          <h1 id="anime-h1">LIVE FACE MASK DETECTION</h1>
+  
+          <div class="animation-areaLeft">
+              <!-- Left area content -->
+              <br><br><br><br>
+              <h2 class="anime-h3">Capturing your image</h2>
+              <p id="mask-message"></p>
+          </div>
+  
+          <div class="animation-areaRight">
+              <img src="{{ url_for('video_feed') }}" id="pics">
+          </div>
+      </div>
+  
+      <!-- Refresh button -->
+      <button id="refresh-btn" onclick="refreshPage()">Refresh</button>
+  </div>
+  
+  <script>
+      function refreshPage() {
+          location.reload();
+      }
 
-    <div id="header">
+      // Function to fetch mask detection result and update the message
+      function fetchMaskResult() {
+          fetch('/get_mask_result') 
+              .then(response => response.json())
+              .then(data => {
+                  const maskMessage = document.getElementById('mask-message');
+                  if (data.has_mask) {
+                      maskMessage.textContent = 'You are wearing a mask. Thank you!';
+                  } else {
+                      maskMessage.textContent = 'You are not wearing a mask. Please wear a mask!';
+                  }
+              })
+              .catch(error => {
+                  console.log('Error:', error);
+              });
+      }
 
-        <a id="logo" href="index.html">MaskDetector</a>
-        <nav>
-        <ul>
-            <li><a href="index.html">home</a></li>
-            <li><a href="#about">about</a></li>
-            <li><a href="#services">services</a></li>
-            <li><a href="#contact">contact</a></li>
-        </ul>
-        </nav>
-    </div>
-
-    <div class="animation_content">
-
-        <h1 id="anime-h1"> LIVE FACE MASK DETECTION</h1>
-
-        <div class="animation-areaLeft" >
-                    <br><br><br><br>
-                    <h2 class="anime-h3">Capturing your image</h2>
-
-              <div class="center">
-                    <form action="/takeimage" method="post">
-                      <input type="submit" name="Click the Photo" value="Take a Picture" class="btn-serv" />
-
-
-                  <div id="prediction_Result">
-                      <br><br>
-                      <h2 class="anime-h3"> Result </h2>
-                      <img src="{{url_for('checker_feed')}}" alt="">
-                  </div>
-                    </form>
-              </div>
-        </div>
-
-        <div class="animation-areaRight">
-        <img src="{{ url_for('video_feed') }}" id="pics">
-        </div>
-
-    </div>
-</div>
+      // Fetch mask detection result every 3 seconds
+      setInterval(fetchMaskResult, 25000);
+  </script>
+</body>
+</html>
