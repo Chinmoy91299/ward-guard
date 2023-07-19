@@ -16,7 +16,6 @@ auth_program = "bf988110b7c39c73677adea121d326ee"
 twilio_num = "+14847598067"
 target_num="+919344994959"
 
-delayForMessage=10
 
 
 
@@ -38,8 +37,10 @@ faceNet = cv2.dnn.readNet(prototxtPath, weightsPath)
 maskNet = load_model("mask_detector.model")
 
 
-hasMask = False
+hasMask = True
+noOfPeople = 0
 lastMessageSentTime=0
+delayForMessage=10
 
 
 
@@ -123,6 +124,7 @@ def gen():
 
 
 def detect_and_predict_mask(frame, faceNet, maskNet):
+    global noOfPeople
     (h, w) = frame.shape[:2]
     blob = cv2.dnn.blobFromImage(frame, 1.0, (224, 224),
                                  (104.0, 177.0, 123.0))
@@ -155,7 +157,10 @@ def detect_and_predict_mask(frame, faceNet, maskNet):
 
     if len(faces) > 0:
         faces = np.array(faces, dtype="float32")
+        noOfPeople=len(faces)
         preds = maskNet.predict(faces, batch_size=32)
+    else:
+        noOfPeople=0
 
     return (locs, preds)
 
@@ -191,7 +196,7 @@ def stop_video_feed():
 @app.route('/get_mask_status')
 def get_mask_result():
     global hasMask
-    return Response(json.dumps({'hasMask': bool(hasMask)}), mimetype='application/json')
+    return Response(json.dumps({'hasMask': bool(hasMask),'noOfPeople':int(noOfPeople)}), mimetype='application/json')
 
 
 

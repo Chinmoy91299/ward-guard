@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="author" content="AnikeSadia">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,user-scalable=no">
-    <meta http-equiv="refresh" content="25">
+    <!-- <meta http-equiv="refresh" content="25"> -->
 <style>
 *{
 
@@ -456,15 +456,20 @@ padding: 10px;
         fetch('/get_mask_status').then((data)=>{
           return data.json();
         }).then((data)=>{
-          const {hasMask} = data;
+          const {hasMask,noOfPeople} = data;
           console.log(hasMask);
-
-          if(hasMask){
-            mes.innerHTML="You are wearing a mask";
-            mes.style.color="green";
-          }else{
-            mes.innerHTML="You are not wearing a mask";
-            mes.style.color="red";
+          if(noOfPeople>0){
+            if(hasMask){
+              mes.innerHTML="You are wearing a mask";
+              mes.style.color="green";
+            }else{
+              mes.innerHTML="You are not wearing a mask";
+              mes.style.color="red";
+            }
+          }
+          else{
+              mes.innerHTML="No one in front of camera";
+              mes.style.color="green";
           }
         })
 
