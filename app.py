@@ -67,11 +67,12 @@ def home():
 
 
 def send_message():
-    global acc_sid,auth_program,twilio_num,target_num,lastMessageSentTime,delayForMessage
+    global acc_sid,auth_program,twilio_num,target_num,lastMessageSentTime,delayForMessage,noOfPeople,hasMask
     now=time.time()
-    if(now-lastMessageSentTime<delayForMessage):
+    print("Time:",now)
+    if(now-lastMessageSentTime>delayForMessage):
         return
-    else:
+    elif (noOfPeople > 0 and not hasMask):
         lastMessageSentTime=now
         client=Client(acc_sid,auth_program)
         message=client.messages.create(
