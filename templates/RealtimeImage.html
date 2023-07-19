@@ -444,32 +444,35 @@ padding: 10px;
 
 
 
-    //   function refreshPage() {
-    //       location.reload();
-    //   }
-
-    //   // Function to fetch mask detection result and update the message
-    //   function fetchMaskResult() {
-    //       fetch('/get_mask_result') 
-    //           .then(response => response.json())
-    //           .then(data => {
-    //               const maskMessage = document.getElementById('mask-message');
-    //               if (data.has_mask) {
-    //                   maskMessage.textContent = 'You are wearing a mask. Thank you!';
-    //               } else {
-    //                   maskMessage.textContent = 'You are not wearing a mask. Please wear a mask!';
-    //               }
-    //           })
-    //           .catch(error => {
-    //               console.log('Error:', error);
-    //           });
-    //   }
+      function refreshPage() {
+          location.reload();
+      }
 
 
+      setInterval(()=>{
+
+        const mes=document.getElementById("mask-message");
+
+        fetch('/get_mask_status').then((data)=>{
+          return data.json();
+        }).then((data)=>{
+          const {hasMask} = data;
+          console.log(hasMask);
+
+          if(hasMask){
+            mes.innerHTML="You are wearing a mask";
+            mes.style.color="green";
+          }else{
+            mes.innerHTML="You are not wearing a mask";
+            mes.style.color="red";
+          }
+        })
 
 
-    //   // Fetch mask detection result every 3 seconds
-    //   setInterval(fetchMaskResult, 25000);
+      },100)
+
+
+
   </script>
 </body>
 </html>

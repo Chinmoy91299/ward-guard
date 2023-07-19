@@ -1,5 +1,5 @@
 # Import the Flask class from the flask module
-from flask import Flask, render_template, Response, session, jsonify
+from flask import Flask, render_template, Response, session
 from twilio.rest import Client
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 from tensorflow.keras.preprocessing.image import img_to_array
@@ -9,6 +9,7 @@ import numpy as np
 import imutils
 import cv2
 import time
+import json
 
 acc_sid = "AC6c198a4e05e3991b1fe583c1bb5d5e26"
 auth_program = "bf988110b7c39c73677adea121d326ee"
@@ -183,13 +184,14 @@ def stop_video_feed():
     if 'camera_open' in session and session['camera_open']:
         session['camera_open'] = False
         release_camera()
-    return jsonify({'success': True})
+    return Response(json.dumps({'success': True}), mimetype='application/json')
 
 
 
-@app.route('/get_mask_result')
+@app.route('/get_mask_status')
 def get_mask_result():
-    return jsonify({'has_mask': True})   
+    global hasMask
+    return Response(json.dumps({'hasMask': bool(hasMask)}), mimetype='application/json')
 
 
 
