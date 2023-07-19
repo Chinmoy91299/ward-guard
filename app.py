@@ -68,7 +68,6 @@ def home():
 def send_message():
     global acc_sid,auth_program,twilio_num,target_num,lastMessageSentTime,delayForMessage,noOfPeople,hasMask
     now=time.time()
-    print("Time:",now-lastMessageSentTime)
     # delta > 10 seconds
     if(now-lastMessageSentTime<delayForMessage):
         return
