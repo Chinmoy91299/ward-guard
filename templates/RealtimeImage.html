@@ -441,29 +441,35 @@ padding: 10px;
   </div>
   
   <script>
-      function refreshPage() {
-          location.reload();
-      }
 
-      // Function to fetch mask detection result and update the message
-      function fetchMaskResult() {
-          fetch('/get_mask_result') 
-              .then(response => response.json())
-              .then(data => {
-                  const maskMessage = document.getElementById('mask-message');
-                  if (data.has_mask) {
-                      maskMessage.textContent = 'You are wearing a mask. Thank you!';
-                  } else {
-                      maskMessage.textContent = 'You are not wearing a mask. Please wear a mask!';
-                  }
-              })
-              .catch(error => {
-                  console.log('Error:', error);
-              });
-      }
 
-      // Fetch mask detection result every 3 seconds
-      setInterval(fetchMaskResult, 25000);
+
+    //   function refreshPage() {
+    //       location.reload();
+    //   }
+
+    //   // Function to fetch mask detection result and update the message
+    //   function fetchMaskResult() {
+    //       fetch('/get_mask_result') 
+    //           .then(response => response.json())
+    //           .then(data => {
+    //               const maskMessage = document.getElementById('mask-message');
+    //               if (data.has_mask) {
+    //                   maskMessage.textContent = 'You are wearing a mask. Thank you!';
+    //               } else {
+    //                   maskMessage.textContent = 'You are not wearing a mask. Please wear a mask!';
+    //               }
+    //           })
+    //           .catch(error => {
+    //               console.log('Error:', error);
+    //           });
+    //   }
+
+
+
+
+    //   // Fetch mask detection result every 3 seconds
+    //   setInterval(fetchMaskResult, 25000);
   </script>
 </body>
 </html>

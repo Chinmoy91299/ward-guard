@@ -1,5 +1,6 @@
 # Import the Flask class from the flask module
 from flask import Flask, render_template, Response, session, jsonify
+from twilio.rest import Client
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.models import load_model
@@ -7,6 +8,19 @@ from twilio.rest import Client
 import numpy as np
 import imutils
 import cv2
+import time
+
+acc_sid = "AC6c198a4e05e3991b1fe583c1bb5d5e26"
+auth_program = "bf988110b7c39c73677adea121d326ee"
+twilio_num = "+14847598067"
+target_num="+919344994959"
+
+delayForMessage=10
+
+
+
+
+
 
 # Create an instance of the Flask class
 app = Flask(__name__)
@@ -23,6 +37,21 @@ faceNet = cv2.dnn.readNet(prototxtPath, weightsPath)
 maskNet = load_model("mask_detector.model")
 
 
+hasMask = False
+lastMessageSentTime=0
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Register a route
 @app.route('/')
 def home():
@@ -33,8 +62,31 @@ def home():
     return render_template('index.html')
 
 
+
+
+def send_message():
+    global acc_sid,auth_program,twilio_num,target_num,lastMessageSentTime,delayForMessage
+    now=time.time()
+    if(now-lastMessageSentTime<delayForMessage):
+        return
+    else:
+        lastMessageSentTime=now
+        client=Client(acc_sid,auth_program)
+        message=client.messages.create(
+            body="wassup",
+            from_=twilio_num,
+            to=target_num
+        )
+        print(message.sid)
+        print("message sent")
+
+
+
+
+
+
 def gen():
-    global camera
+    global camera, hasMask
 
     while True:
         success, frame = camera.read()
@@ -56,6 +108,13 @@ def gen():
             cv2.putText(frame, label, (startX, startY - 10),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.45, color, 2)
             cv2.rectangle(frame, (startX, startY), (endX, endY), color, 2)
+
+
+        if(hasMask):
+            print("has mask")
+        else:
+            print("no mask")
+            send_message()
 
         ret, jpeg = cv2.imencode('.jpg', frame)
         augmentedFrame = jpeg.tobytes()
@@ -102,26 +161,37 @@ def detect_and_predict_mask(frame, faceNet, maskNet):
 
 def release_camera():
     global camera
-
     if camera is not None:
         camera.release()
         camera = None
 
 
+
+
 @app.route('/video_feed')
 def video_feed():
     global camera
-
     if 'camera_open' not in session or not session['camera_open']:
         session['camera_open'] = True
         camera = cv2.VideoCapture(0)
-
     return Response(gen(), mimetype='multipart/x-mixed-replace;boundary=frame')
+
+
+
+@app.route('/stop_video_feed')
+def stop_video_feed():
+    if 'camera_open' in session and session['camera_open']:
+        session['camera_open'] = False
+        release_camera()
+    return jsonify({'success': True})
+
+
 
 @app.route('/get_mask_result')
 def get_mask_result():
-   
     return jsonify({'has_mask': True})   
+
+
 
 @app.route('/ImageStream')
 def ImageStream():
